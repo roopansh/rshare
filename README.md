@@ -37,7 +37,11 @@
         
         python manage.py runserver 0.0.0.0:8000
 
-6. Everything is done.
+6. Everything is done. Visit the following link in your browser 
+        
+        localhost:8000/share
+        
+**NOTE : Replace localhost with the host address of the pc hosting the site.**
 
 
 
