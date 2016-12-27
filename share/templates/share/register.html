@@ -1,0 +1,41 @@
+{% extends 'share/base.html' %}
+
+{% block title %} : Register{% endblock %}
+
+{% block register-active %}active{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3>Register for an Account</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" action="{% url 'share:register' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            {% for field in form %}
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <span class="text-danger small">{{ field.errors }}</span>
+                                    </div>
+                                    <label class="control-label col-sm-3 col-sm-offset-2" for="input_field">{{ field.label_tag }}</label>
+                                    <div class="col-sm-offset-5" id="input_field">{{ field }}</div>
+                                </div>
+                            {% endfor %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-5 col-sm-12">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                    Already have an account? Click <a href="{% url 'share:login' %}">here</a> to log in.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

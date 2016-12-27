@@ -1,0 +1,69 @@
+{% extends 'share/base.html'  %}
+
+{% block title %} : Public Repository{% endblock %}
+
+{% block public-active %}
+    active
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><h3>Public Repository</h3></div>
+                    {% if publicFiles.count != 0 %}
+
+                        <div class="panel-content"><table class="table table-bordered table-responsive table-hover">
+                            <thead>
+                                <tr class="info">
+                                    <th>SR. NO</th>
+                                    <th>NAME</th>
+                                    <th>UPLOADED BY</th>
+                                    <th>EXPIRY DATE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for file in publicFiles %}
+                                    {% if file.expiry_date <= today %}
+                                        <tr class="danger">
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>{{ file.filename}}</td>
+                                            <td>{% if file.uploaded_by %}
+                                                    {{ file.uploaded_by.first_name }} {{ file.uploaded_by.last_name }}
+                                                {% else %}
+                                                    Guest Account
+                                                {% endif %}
+                                            </td>
+                                            <td class="alert-danger">{{ file.expiry_date }}</td>
+                                        </tr>
+                                    {% else %}
+                                        <tr class="">
+                                            <td>{{ forloop.counter }}</td>
+                                            <td><a href="{% url 'share:download' file.pk %}" target="_blank">{{ file.filename}}</a>
+                                                {% if file.password_set %}
+                                                    <span class="glyphicon glyphicon-warning-sign"></span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if file.uploaded_by %}
+                                                    {{ file.uploaded_by.first_name }} {{ file.uploaded_by.last_name }}
+                                                {% else %}
+                                                    Guest Account
+                                                {% endif %}
+                                            </td>
+                                            <td>{{ file.expiry_date }}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table></div>
+                    <div class="panel-footer"><h5 class="panel-title"><span class="glyphicon glyphicon-warning-sign"></span>&nbsp;: denotes that the file is <strong>Password Protected</strong>.</h5></div>
+                    {% else %}
+                        <p><strong>No public files Found on the Database.</strong></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

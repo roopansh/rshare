@@ -1,0 +1,57 @@
+{% extends 'share/base.html' %}
+
+{% block title %} : Download{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+
+    <div class="row" >
+        <div class="col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    {% if expired %}
+                        <h3>The file has <strong>expired</strong></h3>
+                    {% elif password_set %}
+                        <h3>The file is password protected</h3>
+                    {% else %}
+                        <h3>The file is ready to download</h3>
+                    {% endif %}
+                </div>
+                <div class="panel-body">
+                    <pre>{{ file_details }}</pre>
+                    <hr>
+                    {% if password_set %}
+                        <form class="form-horizontal" role="form" action="{% url 'share:password_validate' file_id %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="control-label col-sm-2 col-sm-offset-3" for="password">
+                                    Password:
+                                </label>
+                                <div class="col-sm-7">
+                                    <input id="password" maxlength="20" name="password" type="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-5 col-sm-12">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+                {% if error_message %}
+                    <div class="panel-footer">
+                        <div class="col-sm-offset-5">
+                            <strong>{{ error_message }}</strong>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if success%}
+                    <div class="panel-body">
+                        Click <a href="{{ file.file.url }}">here</a> to download.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
