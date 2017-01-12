@@ -52,4 +52,4 @@ IIT Guwahati
 India  
 
 roopansh.bansal@gmail.com  
-www.linkedin.com/in/roopansh
+www.linkedin.com/in/roopansh-bansal
