@@ -43,8 +43,6 @@
         
 **NOTE : Replace localhost with the host address of the pc hosting the site.**
 
-
-
 ## About the project author
 #### Roopansh Bansal
 B.Tech undergraduate (Computer Science & Engineering)  
@@ -53,3 +51,14 @@ India
 
 roopansh.bansal@gmail.com  
 www.linkedin.com/in/roopansh-bansal
+
+
+# ScreenShots
+
+![Home Page](/screenshots/home.png "Main Page")
+
+![Upload](/screenshots/upload1.png "Upload")
+
+![Password Protected](/screenshots/password.png "Password")
+
+![Download](/screenshots/download.png "Download")
