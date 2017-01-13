@@ -55,10 +55,10 @@ www.linkedin.com/in/roopansh-bansal
 
 # ScreenShots
 
-![Home Page](/screenshots/home.png "Main Page")
+![Home Page](/screenshots/Home.png "Main Page")
 
-![Upload](/screenshots/upload1.png "Upload")
+![Upload](/screenshots/Upload.png "Upload")
 
-![Password Protected](/screenshots/password.png "Password")
+![Password Protected](/screenshots/Password.png "Password")
 
-![Download](/screenshots/download.png "Download")
+![Download](/screenshots/Download.png "Download")
