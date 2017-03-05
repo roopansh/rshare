@@ -3,6 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 from share.models import File
 from datetime import date, timedelta
+from captcha.fields import CaptchaField
 
 # Form for uploading the files
 class FileForm(forms.Form):
@@ -16,10 +17,11 @@ class FileForm(forms.Form):
     expiry_date = forms.DateField(label="Expiry date", widget=forms.SelectDateWidget, initial=date.today()+ timedelta(days=7))
     # making public
     public = forms.BooleanField(label="Make Public", required=False)
-    
+    # captcha
+    captcha = CaptchaField(id_prefix='file')
     class Meta:
         model = File
-        fields = ['file', 'password_set', 'password', 'expiry_date', 'public']
+        fields = ['file', 'password_set', 'password', 'expiry_date', 'public', 'captcha']
 
 
 # Form for user registration

@@ -1,11 +1,12 @@
 # installing django
 sudo apt-get update
-sudo apt install python3 python3-setuptools
-pip3 install django
+sudo apt-get install python3 python3-setuptools
+sudo apt-get -y install libz-dev libjpeg-dev libfreetype6-dev python-dev python3-dev
+sudo pip3 install django
 
 # installing the reuired libraries
-pip3 install passlib
-pip3 install django-simple-captcha
+sudo pip3 install passlib
+sudo pip3 install django-simple-captcha
 
 # setting up the server
 python3 manage.py makemigrations

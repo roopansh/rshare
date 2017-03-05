@@ -25,9 +25,9 @@
         unzip master.zip
         cd rshare-master
 
-3. Run the 'setup.sh' 
+3. Run the 'install.sh' 
         
-        bash setup.sh
+        bash install.sh
         
    Fill all the settings required.
 
