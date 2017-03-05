@@ -1,5 +1,7 @@
-uploads/
-share/migrations/
-__pycache__/
-share/__pycache__/
-share/migrations/__pycache__/
+/uploads/
+/share/migrations/
+/db.sqlite3
+/__pycache__/
+/share/__pycache__/
+/rshare/__pycache__/
+/share/migrations/__pycache__/

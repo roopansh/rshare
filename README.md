@@ -13,6 +13,8 @@
 
   - Download file from link / public repository
   
+  - Hashing password set on the uploaded files
+ 
 ### Setting up
 
 1. Your machine needs to have django installed
