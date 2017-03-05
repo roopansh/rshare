@@ -1,0 +1,5 @@
+uploads/
+share/migrations/
+__pycache__/
+share/__pycache__/
+share/migrations/__pycache__/
