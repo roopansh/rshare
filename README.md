@@ -14,7 +14,7 @@
   - Download file from link / public repository
   
   - Hashing password set on the uploaded files
- 
+
 ### Setting up
 
 1. Your machine needs to have django installed
@@ -25,9 +25,9 @@
         unzip master.zip
         cd rshare-master
 
-3. Create a super user to manage the server 
+3. Run the 'setup.sh' 
         
-        python manage.py createsuperuser
+        bash setup.sh
         
    Fill all the settings required.
 
