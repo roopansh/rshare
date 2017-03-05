@@ -12,9 +12,9 @@ class FileForm(forms.Form):
     # whether the password is set or not
     password_set = forms.BooleanField(label="Set password ?", required=False)
     # setting the password
-    password = forms.CharField(label="Password", widget=forms.PasswordInput, required=False)
+    password = forms.CharField(label="", widget=forms.PasswordInput, required=False)
     # setting the expiry date
-    expiry_date = forms.DateField(label="Expiry date", widget=forms.SelectDateWidget, initial=date.today()+ timedelta(days=7))
+    expiry_date = forms.DateField(label="Expiry date", initial=date.today()+ timedelta(days=7))
     # making public
     public = forms.BooleanField(label="Make Public", required=False)
     # captcha

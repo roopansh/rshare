@@ -5,46 +5,49 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3>Upload File</h3>
-                </div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                            {% for field in form %}
-                                <div class="form-group">
-                                    <!-- errors in the field -->
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <span class="text-danger small">{{ field.errors }}</span>
-                                    </div>
-                                    <!-- label for the field -->
-                                    <label class="control-label col-sm-3 col-sm-offset-2" for="input_field">{{ field.label_tag }}</label>
-                                    <!-- input field -->
-                                    <div class="col-sm-offset-5" id="input_field">{{ field }}</div>
-                                </div>
-                            {% endfor %}
-                        <div class="form-group">
-                            <div class="col-sm-offset-5 col-sm-12">
-                                <button type="submit" class="btn btn-success">Submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- Display the link of the file uploaded -->
-                {% if file_download %}
-                    <div class="panel-footer">
-                        <div class="form-group">
-                            <div class="col-md-offset-2"><strong>File successfully uploaded. Share using the following link : <code>{{ file_download }}</code></strong></div>
-                        </div>
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-    </div>
+    <div class="container">
+        <h3>Upload File</h3>
+        <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="row">
+                <!-- <div class="input-field s6"> -->
+                    <!-- errors in the field -->
+                    <span class="text-danger small">{{ field.errors }}</span>
+                    <!-- label for the field -->
+                    {{ field.label_tag }}
 
-</div>
+                    <!-- input field -->
+                    {{ field }}
+
+                <!-- </div> -->
+            </div>
+            {% endfor %}
+            <div class="row">
+                <button type="submit" class="waves-effect waves-light btn"><i class="material-icons left">cloud_upload</i>Share</button>
+            </div>
+        </form>
+    </div>
+                
+    <!-- Display the link of the file uploaded -->
+    {% if file_download %}
+        <div class="form-group">
+            <div class="col-md-offset-2"><strong>File successfully uploaded. Share using the following link : <code>{{ file_download }}</code></strong></div>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block script %}
+    <script>
+        $('#id_password').hide();
+        document.getElementById('id_password_set').onclick = function(){
+            if (document.getElementById('id_password_set').checked) {
+                $('#id_password').show();
+            }
+            else {
+                $('#id_password').hide();
+            }
+        }
+    </script>
 {% endblock %}

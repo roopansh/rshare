@@ -1,6 +1,8 @@
 # R-Share
 #####This is a Django based file uploader with following features :
   
+##Version 1 :-
+
   - Share via link
 
   - Share to public repository
@@ -13,11 +15,18 @@
 
   - Download file from link / public repository
   
-  - Hashing password set on the uploaded files
+##Version 2 :-
+
+  - Completely new look
+
+  - Password is hashed and saved for the new upload files
+
+  - Captcha validation while uploading the files
+
 
 ### Setting up
 
-1. Your machine needs to have django installed
+1. Your machine needs to have django installed. (taken care by install.sh)
 
 2. Clone the repository, unzip and go to the main directory of the repo .
 
@@ -57,10 +66,21 @@ www.linkedin.com/in/roopansh-bansal
 
 # ScreenShots
 
-![Home Page](/screenshots/Home.png "Main Page")
+##Version 2 :-
 
-![Upload](/screenshots/Upload.png "Upload")
+![Home Page](/screenshots/v2/home.png "Main Page")
 
-![Password Protected](/screenshots/Password.png "Password")
+![Public Repo](/screenshots/v2/public.png "Password")
 
-![Download](/screenshots/Download.png "Download")
+![Sign In](/screenshots/v2/signin.png "Download")
+
+
+##Version 1 :-
+
+![Home Page](/screenshots/v1/Home.png "Main Page")
+
+![Upload](/screenshots/v1/Upload.png "Upload")
+
+![Password Protected](/screenshots/v1/Password.png "Password")
+
+![Download](/screenshots/v1/Download.png "Download")

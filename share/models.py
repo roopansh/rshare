@@ -5,6 +5,12 @@ from datetime import date, timedelta
 import os
 from django import forms
 
+# models for user
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    avatar = models.ImageField(upload_to='users/profilepic/')
+    uploadlimit = models.DecimalField(max_digits=10,decimal_places=5)
+
 # model for files uploads
 class File(models.Model):
     # uploaded file
